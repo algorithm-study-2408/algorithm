@@ -1,4 +1,4 @@
-package hyojin.week1;
+package hyojin.week01;
 
 import java.util.Scanner;
 
