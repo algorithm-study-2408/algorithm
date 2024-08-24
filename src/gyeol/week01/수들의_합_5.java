@@ -1,4 +1,4 @@
-package gyeol.week1;
+package gyeol.week01;
 
 import java.io.*;
 import java.util.StringTokenizer;

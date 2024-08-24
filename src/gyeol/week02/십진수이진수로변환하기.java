@@ -1,4 +1,4 @@
-package gyeol.week2;
+package gyeol.week02;
 
 import java.io.*;
 import java.util.ArrayDeque;
