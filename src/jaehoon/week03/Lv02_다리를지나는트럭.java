@@ -26,6 +26,7 @@ public class Lv02_다리를지나는트럭 {
     }
   }
 
+  /* 트럭 객체를 이용한 내 풀이 */
   public int solution1(int bridge_length, int weight, int[] truck_weights) {
     // 다리에 있는 트럭을 순서대로 저장할 Deque 자료구조
     ArrayDeque<Truck> bridge = new ArrayDeque<>();
@@ -60,6 +61,7 @@ public class Lv02_다리를지나는트럭 {
     return timer;
   }
 
+  /* 인덱스를 이용한 최적화 풀이 */
   public int solution2(int bridge_length, int weight, int[] truck_weights) {
     ArrayDeque<Integer> bridge = new ArrayDeque<>(); // 다리에 있는 트럭을 순서대로 저장할 Deque 자료구조 사용
     int timer = 0; // 다리를 지나는 시간
@@ -73,7 +75,7 @@ public class Lv02_다리를지나는트럭 {
 
     // 2. 트럭들이 모두 다리에 올라갈때까지 반복
     while (index < truck_weights.length) {
-      // 2-1. 현재 다리에 올라간 트럭을 순서대로 빼주어 도착한 트럭의 무게를 업데이트 "빈칸(0)은 무시됨"
+      // 2-1. 현재 다리에 올라간 트럭을 순서대로 뺌, 다리위 트럭 무게도 뺌 - "빈칸(0)은 무시됨"
       currentWeight -= bridge.pollFirst();
 
       // 2-2. 새로운 트럭을 다리에 올릴 수 있는지 확인 (다리위의 트럭의 무게에 대기중인 트럭의 무게를 더해서 제한 무게확인)
@@ -99,6 +101,9 @@ public class Lv02_다리를지나는트럭 {
     int bridge_length = 2;
     int weight = 10;
     int[] truck_weights = {7, 4, 5, 6};
+
+    // 출력값 예시
+    // 8
     System.out.println("result1 = " + main.solution1(bridge_length, weight, truck_weights));
     System.out.println("result2 = " + main.solution2(bridge_length, weight, truck_weights));
 
