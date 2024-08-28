@@ -8,7 +8,7 @@ import java.util.List;
 public class Lv02_기능개발 {
 
   // 첫 풀이 - 시간복잡도 : O(N * D)
-  int[] solution(int[] progresses, int[] speeds) {
+  public int[] solution1(int[] progresses, int[] speeds) {
     List<Integer> list = new ArrayList<>();
 
     // 1. progress 요소의 인덱스를 큐에 넣는다.
@@ -29,7 +29,7 @@ public class Lv02_기능개발 {
 
       // 3. 배포가 가능한지 확인
       // 3-1. 배포가 가능한 기능의 개수 증가 & 큐에서 제거
-      // 3-2. 배포가 불가능한 기능은 큐에 다시 넣어줌
+      // 3-2. 배포가 불가능한 기능을 발견하면, 다시 2번으로 이동
       int count = 0;
       while (!queue.isEmpty() && progresses[queue.peek()] >= 100) {
 
@@ -50,7 +50,7 @@ public class Lv02_기능개발 {
   }
 
   // 최적화한 풀이 - 시간복잡도 : O(N)
-  int[] solution2(int[] progresses, int[] speeds) {
+  public int[] solution2(int[] progresses, int[] speeds) {
     List<Integer> list = new ArrayList<>();
 
     // 1. progress 요소들의 배포 가능일을 계산해서 큐에 넣음
@@ -64,16 +64,17 @@ public class Lv02_기능개발 {
     while (!queue.isEmpty()) {
       int count = 1;
       int first = queue.pollFirst();
-      // 2-1. 첫번째 작업의 다음요소의 배포가능일이 더 적은 일수가 걸리면 배포가능 (큐에서 제거 & 기능갯수 증가)
+
+      // 2-1. 첫번째 작업의 다음 요소의 배포 가능일이 더 작은 경우, 같은 날 배포 가능 (큐에서 제거 & 기능 갯수 증가)
       while (!queue.isEmpty() && queue.peek() <= first) {
         queue.pollFirst();
         count++;
       }
-      // 2-2. 배포시점에 완료된 기능갯수 추가
+      // 2-2. 배포 시점에 완료된 기능 갯수 추가
       list.add(count);
     }
 
-    // 3. 기능갯수 리스트를 배열로 변환해서 반환
+    // 3. 기능 갯수 리스트를 배열로 변환해서 반환
     int[] answer = new int[list.size()];
     for (int i = 0; i < list.size(); i++) {
       answer[i] = list.get(i);
@@ -89,7 +90,11 @@ public class Lv02_기능개발 {
     int[] speeds = {1, 1, 1, 1, 1, 1};
 
     // 출력값 예시
-    // [1, 3, 2]
-    System.out.println("result = " + Arrays.toString(main.solution(progresses, speeds)));
+    // 1, 3, 2
+    System.out.println("result = " + Arrays.toString(main.solution1(progresses, speeds)));
+
+    // solution1에서 progresses 값이 변경되어 재정의
+    progresses = new int[]{95, 90, 99, 99, 80, 99};
+    System.out.println("result = " + Arrays.toString(main.solution2(progresses, speeds)));
   }
 }
