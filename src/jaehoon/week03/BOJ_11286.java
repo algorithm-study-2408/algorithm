@@ -1,9 +1,7 @@
 package jaehoon.week03;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -67,51 +65,15 @@ public class BOJ_11286 {
 
   public static void main(String[] args) {
     BOJ_11286 main = new BOJ_11286();
-    try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-// 입력값 예시
-//18
-//1
-//-1
-//0
-//0
-//0
-//1
-//1
-//-1
-//-1
-//2
-//-2
-//0
-//0
-//0
-//0
-//0
-//0
-//0
-      int n = Integer.parseInt(br.readLine().trim());
-      int[] arr = new int[n];
-      for (int i = 0; i < n; i++) {
-        arr[i] = Integer.parseInt(br.readLine().trim());
-      }
+    // 입력값 예시
+    // 18
+    // 1, -1, 0, 0, 0, 1, 1, -1, -1, 2, -2, 0, 0, 0, 0, 0, 0, 0
+    int n = 18;
+    int[] arr = new int[]{1, -1, 0, 0, 0, 1, 1, -1, -1, 2, -2, 0, 0, 0, 0, 0, 0, 0};
 
-      // 출력값 예시
-      //       -1
-      //       1
-      //        0
-      //       -1
-      //       -1
-      //       1
-      //       1
-      //       -2
-      //       2
-      //       0
-      int[] result = main.solution(arr);
-      for (int value : result) {
-        System.out.println(value);
-      }
-    } catch (IOException ioException) {
-      System.out.println("ioException = " + ioException);
-    }
+    // 출력값 예시
+    // -1, 1, 0, -1, -1, 1, 1, -2, 2, 0
+    System.out.println("result = " + Arrays.toString(main.solution(arr)));
   }
 
 }
