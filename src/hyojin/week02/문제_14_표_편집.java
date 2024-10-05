@@ -5,12 +5,12 @@ import java.util.*;
 public class 문제_14_표_편집 {
     public static void main(String[] args) {
         // 입출력 선언
-        int n = 8;
-        int k = 2;
+        int n = 8;  // 테이블 개수
+//        int k = 2;  // 시작하는 행 위치
+        int k = 7;  // 시작하는 행 위치
 //        String[] cmd = {"D 2", "C", "U 3", "C", "D 4", "C", "U 2", "Z", "Z"};
-        String[] cmd = {"D 2", "C", "U 3", "C", "D 4", "C", "U 2", "Z", "Z", "U 1", "C"};
-
-        // 정답지
+//        String[] cmd = {"D 2", "C", "U 3", "C", "D 4", "C", "U 2", "Z", "Z", "U 1", "C"};
+        String[] cmd = {"C", "C", "C"};
         // 삭제된 행의 인덱스를 저장하는 스택
         Stack<Integer> deleted = new Stack<>();
 
@@ -19,7 +19,7 @@ public class 문제_14_표_편집 {
         int[] down = new int[n + 2];
 
         for (int i = 0; i < n + 2; i++) {
-            up[i] = i -1;
+            up[i] = i - 1;
             down[i] = i + 1;
         }
 

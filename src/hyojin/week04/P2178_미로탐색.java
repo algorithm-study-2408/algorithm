@@ -7,7 +7,7 @@ import java.util.ArrayDeque;
 import java.util.StringTokenizer;
 
 public class P2178_미로탐색 {
-    // 이동 방향 {남, 동, 북, 서}
+    // 이동 방향
     static int[] dx = {0, 1, 0, -1};
     static int[] dy = {1, 0, -1, 0};
     static boolean[][] visited; // 방문 변수
@@ -32,7 +32,7 @@ public class P2178_미로탐색 {
             }
         }
 
-        // 깊이 우선 탐색 시작
+        // 너비 우선 탐색 시작
         BFS(0, 0);
 
         System.out.println(A[N - 1][M - 1]);
@@ -46,8 +46,9 @@ public class P2178_미로탐색 {
         }
     }
 
-    // 깊이 우선 탐색
+    // 너비 우선 탐색
     private static void BFS(int i, int j) {
+        // 0,0
         ArrayDeque<int[]> queue = new ArrayDeque<>();
         queue.addLast(new int[] {i, j});
         visited[i][j] = true;
@@ -55,6 +56,7 @@ public class P2178_미로탐색 {
         while (!queue.isEmpty()) {
             // 현재 좌표
             int[] current_point = queue.pollFirst();
+
             for (int k = 0; k < 4; k++) {
                 // 좌표 이동
                 int x = current_point[0] + dx[k];

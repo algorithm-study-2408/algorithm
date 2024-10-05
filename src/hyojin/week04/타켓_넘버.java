@@ -20,14 +20,15 @@ public class 타켓_넘버 {
         int[] numbers = {1,1,1,1,1};
         int target = 3;
 
+        // 음이 아닌 정수, 순서를 바꾸지 않고 적절히 더하거나 빼서 타켓 넘버를 만듬
         // 트리 구조를 사용하여, BFS 최종 값들은 구해서 target 값과 같을 경우 카운트하기
         int count = 0;
 
-        // 트리 구조를 사용한 BFS로 접근
+        // 트리노드 타입의 큐 생성
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(new TreeNode(0, 0));
 
-        // BFS 순회
+        // 큐 순회
         while (!queue.isEmpty()) {
             TreeNode current = queue.poll();
 
