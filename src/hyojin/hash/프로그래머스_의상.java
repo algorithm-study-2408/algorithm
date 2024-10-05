@@ -2,7 +2,12 @@ package hyojin.hash;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+
+/**
+ * 프로그래머스
+ * 해시/Lv2/의상
+ * https://school.programmers.co.kr/learn/courses/30/lessons/42578
+ */
 
 public class 프로그래머스_의상 {
     public static void main(String[] args) {
