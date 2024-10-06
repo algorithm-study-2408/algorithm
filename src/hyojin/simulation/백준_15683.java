@@ -1,4 +1,4 @@
-package hyojin.week07;
+package hyojin.simulation;
 
 import java.util.ArrayList;
 import java.util.Scanner;
